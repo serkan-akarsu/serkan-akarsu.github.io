@@ -55,9 +55,12 @@
 
   function yukleFontIndeksi() {
     try {
-      const kayit = Number(localStorage.getItem("serkan_okuma_boyutu"));
-      if (kayit >= 0 && kayit < FONT_BOYUTLARI.length) {
-        return kayit;
+      const ham = localStorage.getItem("serkan_okuma_boyutu");
+      if (ham !== null && ham !== "") {
+        const kayit = Number(ham);
+        if (Number.isInteger(kayit) && kayit >= 0 && kayit < FONT_BOYUTLARI.length) {
+          return kayit;
+        }
       }
     } catch (_) {
       /* Yerel depolama kapalıysa varsayılan boyutla devam edilir */
@@ -185,12 +188,9 @@
           '<span class="card-badge">' +
           escapeHtml(yazi.kategori) +
           "</span>" +
-          "<span>•</span>" +
-          "<span>" +
+          '<span class="card-meta-details">' +
           escapeHtml(yazi.tarih) +
-          "</span>" +
-          "<span>•</span>" +
-          "<span>" +
+          " &middot; " +
           escapeHtml(yazi.okumaSuresi) +
           "</span>" +
           "</div>" +
