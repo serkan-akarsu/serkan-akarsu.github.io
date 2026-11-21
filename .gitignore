@@ -1,0 +1,12 @@
+# İşletim sistemi ve düzenleyici geçici dosyaları
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.log
+.vscode/
+.idea/
+
+# Gizli anahtarlar ve ortam dosyaları
+.env
+.env.*
