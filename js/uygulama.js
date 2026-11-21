@@ -213,6 +213,58 @@
       .join("");
   }
 
+  function zamanDamgasiHtml(damga) {
+    if (!damga) return "";
+    return (
+      '<aside class="timestamp-card" aria-label="Zaman damgası kanıtı">' +
+      '<div class="timestamp-head">' +
+      '<h2 class="timestamp-title">&#10003; Kriptografik Zaman Damgası Kanıtı</h2>' +
+      '<span class="timestamp-badge">Doğrulanmış Mühür</span>' +
+      "</div>" +
+      '<p class="timestamp-desc">' +
+      escapeHtml(damga.aciklama) +
+      "</p>" +
+      '<div class="timestamp-grid">' +
+      '<div class="timestamp-item">' +
+      '<span class="timestamp-label">İlk Kayıt Tarihi</span>' +
+      '<span class="timestamp-value">' +
+      escapeHtml(damga.ilkKayit) +
+      "</span>" +
+      "</div>" +
+      '<div class="timestamp-item">' +
+      '<span class="timestamp-label">Blok Zinciri Mührü</span>' +
+      '<span class="timestamp-value">' +
+      escapeHtml(damga.muhurTarihi) +
+      "</span>" +
+      "</div>" +
+      '<div class="timestamp-item">' +
+      '<span class="timestamp-label">Bitcoin Blokları</span>' +
+      '<span class="timestamp-value">' +
+      escapeHtml(damga.bloklar) +
+      "</span>" +
+      "</div>" +
+      '<div class="timestamp-item">' +
+      '<span class="timestamp-label">Yöntem</span>' +
+      '<span class="timestamp-value">' +
+      escapeHtml(damga.yontem) +
+      "</span>" +
+      "</div>" +
+      "</div>" +
+      '<div class="timestamp-hash-box">' +
+      '<div class="timestamp-hash-text">' +
+      '<span class="timestamp-label">Belge Parmak İzi (SHA-256)</span>' +
+      '<span class="timestamp-hash-code">' +
+      escapeHtml(damga.sha256) +
+      "</span>" +
+      "</div>" +
+      '<button type="button" class="tool-btn timestamp-copy-btn" id="copy-hash-btn" data-hash="' +
+      escapeHtml(damga.sha256) +
+      '">Kopyala</button>' +
+      "</div>" +
+      "</aside>"
+    );
+  }
+
   function yaziCiz(yazi) {
     const etiketHtml = (yazi.etiketler || [])
       .map(function (etiket) {
@@ -264,6 +316,7 @@
       '<div class="article-prose">' +
       (yazi.icerikHtml || "") +
       "</div>" +
+      zamanDamgasiHtml(yazi.zamanDamgasi) +
       '<div class="article-divider">&bull; &bull; &bull;</div>' +
       '<footer class="article-end-card">' +
       "<span><strong>" +
@@ -276,6 +329,14 @@
     if (altDonButonu) {
       altDonButonu.addEventListener("click", function () {
         rotayaGit("yazilar");
+      });
+    }
+
+    const hashKopyalaButonu = document.getElementById("copy-hash-btn");
+    if (hashKopyalaButonu) {
+      hashKopyalaButonu.addEventListener("click", function () {
+        const deger = hashKopyalaButonu.getAttribute("data-hash") || "";
+        panoyaKopyala(deger, "Belge parmak izi kopyalandı.");
       });
     }
   }
@@ -371,23 +432,26 @@
     }, 2400);
   }
 
-  function baglantiyiKopyala() {
-    const adres = window.location.href;
+  function panoyaKopyala(metin, basariMesaji) {
     if (navigator.clipboard && window.isSecureContext) {
       navigator.clipboard
-        .writeText(adres)
+        .writeText(metin)
         .then(function () {
-          bildirimGoster("Yazı bağlantısı kopyalandı.");
+          bildirimGoster(basariMesaji);
         })
         .catch(function () {
-          yedekKopyala(adres);
+          yedekKopyala(metin, basariMesaji);
         });
       return;
     }
-    yedekKopyala(adres);
+    yedekKopyala(metin, basariMesaji);
   }
 
-  function yedekKopyala(metin) {
+  function baglantiyiKopyala() {
+    panoyaKopyala(window.location.href, "Yazı bağlantısı kopyalandı.");
+  }
+
+  function yedekKopyala(metin, basariMesaji) {
     try {
       const alan = document.createElement("textarea");
       alan.value = metin;
@@ -398,9 +462,9 @@
       alan.select();
       const basarili = document.execCommand("copy");
       document.body.removeChild(alan);
-      bildirimGoster(basarili ? "Yazı bağlantısı kopyalandı." : "Adres çubuğundan kopyalayabilirsiniz.");
+      bildirimGoster(basarili ? basariMesaji : "Seçip kopyalayabilirsiniz.");
     } catch (_) {
-      bildirimGoster("Adres çubuğundan kopyalayabilirsiniz.");
+      bildirimGoster("Seçip kopyalayabilirsiniz.");
     }
   }
 

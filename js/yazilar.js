@@ -22,6 +22,15 @@ window.YAZILAR = [
     onizlemeFormulu: "Toplam = (Son terim − İlk terim) / (n − 1) + Son terim",
     kaynakUrl:
       "https://medium.com/@serkan3311a/geometrik-dizileri-%C3%BCs-almadan-toplaman%C4%B1n-pratik-yolu-3f8a4e506fe5",
+    zamanDamgasi: {
+      yontem: "OpenTimestamps (Bitcoin Blok Zinciri)",
+      ilkKayit: "27 Eylül 2026 (Belge v1.0)",
+      muhurTarihi: "30 Eylül 2026, 20:30 TSİ",
+      bloklar: "#969326 ve #969327",
+      sha256: "4feec8cff4ccba7f79fef035bfc0291f1aef9157b917ca59650c9f09bbee0f25",
+      aciklama:
+        "Bu yöntem ilk olarak 27 Eylül 2026 tarihli notla kayıt altına alınmış; 30 Eylül 2026'da OpenTimestamps üzerinden Bitcoin blok zincirine kriptografik olarak mühürlenmiştir. Orijinal belge yazar arşivinde saklanmaktadır."
+    },
     icerikHtml: `
       <div class="lead-question">
         <p>Önce küçük bir soruyla başlayalım:</p>
