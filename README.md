@@ -15,11 +15,11 @@ Serkan'ın yazılarını, pratik yöntemlerini ve gelecekte paylaşacağı diğe
 - **Ayrı proje klasörü:** Oyun projelerinden (`serkan oyunlar`) bağımsız kalması için kendi klasöründe tutuldu.
 - **Sıfır kurulum ve tek klasörde çalışma:** Sunucu, üyelik veya ek araç gerektirmeden `index.html` dosyası çift tıklanarak doğrudan tarayıcıda açılabilir; aynı zamanda internet yayınına (ör. GitHub Pages) doğrudan hazırdır.
 - **Okuma odaklı tema:** Beyaz ve krem tonlarında, göz yormayan kitap/dergi tipografisi tercih edildi.
-- **Canlı yayın:** GitHub Pages üzerinden `https://331131312.github.io/` adresinde yayınlandı.
+- **Canlı yayın:** GitHub Pages üzerinden `https://serkan-akarsu.github.io/` adresinde yayınlandı.
 
 ## Nasıl Açılır?
 
-- **İnternetten:** `https://331131312.github.io/` adresini açabilirsiniz.
+- **İnternetten:** `https://serkan-akarsu.github.io/` adresini açabilirsiniz.
 - **Bilgisayardan (çevrimdışı):** Klasördeki `index.html` dosyasına çift tıklamanız yeterlidir.
 
 ## Yeni Yazı Nasıl Eklenir?
