@@ -731,6 +731,7 @@ button {
   margin: 1.25rem 0 1.5rem;
 }
 
+.note-box p:last-child,
 .note-box ul {
   margin-bottom: 0;
 }

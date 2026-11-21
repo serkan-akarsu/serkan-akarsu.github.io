@@ -173,6 +173,15 @@ window.YAZILAR = [
         hızlandırabiliyor. Siz de kendi seçtiğiniz bir sayı dizisinde bu yöntemi deneyip sonucu yorumlarda
         paylaşabilirsiniz.
       </p>
+
+      <div class="note-box">
+        <p>
+          <strong>Not:</strong> Bu pratik yöntemlerdeki pozitif sayıların belirli bir pozitif katı şeklinde
+          artan sayıların toplamını bulduran pratik yolu ben buldum. Bu bulduğum kısayolun bütün sayılarda
+          çalıştığından emin değildim; ispatını yapay zeka yaptı. Yöntemin negatif sayılarda ve belirli
+          negatif katlarla artarak ilerleyen yolunu ise yapay zeka buldu.
+        </p>
+      </div>
     `
   }
 ];
