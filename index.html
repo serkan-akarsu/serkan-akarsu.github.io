@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serkan | Yazılar &amp; Projeler</title>
+  <meta name="description" content="Serkan'ın matematik, bilim, pratik bilgiler ve projeler üzerine yazıları.">
+  <link rel="icon" type="image/svg+xml" href="gorseller/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/stil.css">
+</head>
+<body>
+  <div id="reading-progress" class="reading-progress" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#yazilar" id="brand-home-link" class="brand-link">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <span class="brand-text">
+          <span class="brand-name">Serkan</span>
+          <span class="brand-tagline">Yazılar &amp; Projeler</span>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="Ana menü">
+        <button type="button" id="nav-yazilar" class="nav-btn is-active">Yazılar</button>
+        <button type="button" id="nav-hakkimda" class="nav-btn">Hakkımda</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <!-- Ana Liste Görünümü -->
+    <section id="view-liste" aria-label="Yazılar listesi">
+      <div class="editorial-hero">
+        <span class="eyebrow">Kişisel Yayın Alanı</span>
+        <h1 class="hero-title">Düşünceler, pratik yöntemler ve seçme yazılar.</h1>
+        <p class="hero-lead">
+          Matematikten bilime, günlük pratiklerden yeni çalışmalara uzanan kişisel notlarım ve yazılarım.
+        </p>
+      </div>
+
+      <div class="controls-bar">
+        <div id="category-pills" class="category-pills" aria-label="Konu filtreleri"></div>
+
+        <div class="search-wrap">
+          <input
+            type="search"
+            id="search-input"
+            class="search-input"
+            placeholder="Yazılarda ara..."
+            aria-label="Yazılarda ara"
+          >
+          <button
+            type="button"
+            id="search-clear"
+            class="search-clear hidden"
+            aria-label="Aramayı temizle"
+          >&times;</button>
+        </div>
+      </div>
+
+      <div id="articles-grid" class="articles-grid"></div>
+
+      <div id="empty-state" class="empty-state hidden">
+        <p>Aradığınız kritere uygun bir yazı bulunamadı.</p>
+        <button type="button" id="reset-filters-btn" class="back-btn">Tüm Yazıları Göster</button>
+      </div>
+
+      <div id="archive-note" class="archive-note">
+        Yeni yazılar, notlar ve diğer paylaşımlar eklendikçe burada yerini alacak.
+      </div>
+    </section>
+
+    <!-- Yazı Okuma Görünümü -->
+    <section id="view-okuma" class="reader-shell hidden" aria-label="Yazı okuma alanı">
+      <div class="reader-topbar">
+        <button type="button" id="back-to-list-btn" class="back-btn">&larr; Tüm Yazılar</button>
+
+        <div class="reader-tools">
+          <button type="button" id="font-cycle-btn" class="tool-btn">Yazı Boyutu: Normal</button>
+          <button type="button" id="copy-link-btn" class="tool-btn">Bağlantıyı Kopyala</button>
+        </div>
+      </div>
+
+      <article id="article-container" class="article-paper"></article>
+    </section>
+
+    <!-- Hakkımda Görünümü -->
+    <section id="view-hakkimda" class="hidden" aria-label="Yazar hakkında">
+      <div class="about-card">
+        <span class="eyebrow">Hakkımda</span>
+        <h1>Merhaba, ben Serkan.</h1>
+        <p>
+          Bu web sitesi; matematik, bilim, pratik bilgiler ve günlük hayatta işleri kolaylaştıran
+          yöntemler üzerine yazdığım yazıları tek bir çatı altında topladığım kişisel alanım.
+        </p>
+        <p>
+          Zamanla yalnızca yazıları değil, ürettiğim diğer içerikleri ve paylaşımları da doğrudan
+          buradan yayınlamaya devam edeceğim.
+        </p>
+
+        <div class="about-links">
+          <button type="button" id="about-to-articles-btn" class="primary-btn">Yazılara Göz At &rarr;</button>
+          <a
+            href="https://medium.com/@serkan3311a"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="back-btn"
+          >
+            Medium Profilim &#8599;
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Serkan &copy; 2026 &middot; Yazılar &amp; Projeler</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/yazilar.js"></script>
+  <script src="js/uygulama.js"></script>
+</body>
+</html>
